@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import sys
 import json
@@ -75,7 +77,7 @@ def RevertChanges():
 
 if __name__ == "__main__":
     print('-' * 48)
-    print('Create or delete a GitHub repository from the command line')
+    print('Create a GitHub repository from the command line')
     print('-' * 48)
 
     username = 'geocoug'
