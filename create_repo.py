@@ -61,7 +61,7 @@ def DelRepo(url, headers):
 #   that was just created
 def RevertChanges():
     while True:
-        revert = input("Do you want to keep these changes [Y/n]: ").lstrip().rstrip()
+        revert = input("Do you want to keep these changes [Y/n]: ").strip()
         if not (revert.upper() == 'Y' or revert.upper() == 'N'):
             print('Error: please enter [Y] or [n]')
         else:
@@ -84,9 +84,9 @@ if __name__ == "__main__":
     token = GetToken()
     base_url = 'https://api.github.com'
     
-    repo_name = input('Enter a repository name: ').lstrip().rstrip()
+    repo_name = input('Enter a repository name: ').strip()
     while True:
-        private = input('Private repository [Y/n]: ').lstrip().rstrip()
+        private = input('Private repository [Y/n]: ').strip()
         if not (private.upper() == 'Y' or private.upper() == 'N'):
             print('Error: please enter [Y] or [n]')
         else:
@@ -95,10 +95,14 @@ if __name__ == "__main__":
         private = True
     else:
         private = False
+
+    # Ask for repo description
+    repo_desc = input('Description (optional): ').strip()
+
     # Create a repo
     CreateRepo(
         base_url + '/user/repos', 
-        {"name": repo_name, "private": private}, 
+        {"name": repo_name, "private": private, "description": repo_desc}, 
         {'Authorization': "token {}".format(token)}
     )
     # Ask user if they want to keep these changes
