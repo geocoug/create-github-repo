@@ -8,15 +8,16 @@ import requests
 
 # Read a local file containing user authentication token
 def GetToken():
-    # Equivilant of stepping out 2 directories ("../../")
-    token_dir = os.path.dirname(os.path.dirname(os.getcwd()))
-    # Name of text file storing GitHub API key
-    token_file = os.path.join(token_dir, 'github.txt')
+    # Name of file storing GitHub token
+    if os.path.exists(os.path.join(os.getcwd(), 'github.txt')):
+        token_file = os.path.join(os.getcwd(), 'github.txt')
+    else:
+        token_file = os.path.join(os.path.dirname(os.path.dirname(os.getcwd())), 'github.txt')
     try:
         with open(token_file, 'r') as f:
             token = f.readlines()[0]
     except:
-        print('No file found: {}'.format(token_dir))
+        print('No token found.')
         sys.exit()
     return token
 
