@@ -9,10 +9,7 @@ import requests
 # Read a local file containing user authentication token
 def GetToken():
     # Name of file storing GitHub token
-    if os.path.exists(os.path.join(os.getcwd(), 'github.txt')):
-        token_file = os.path.join(os.getcwd(), 'github.txt')
-    else:
-        token_file = os.path.join(os.path.dirname(os.path.dirname(os.getcwd())), 'github.txt')
+    token_file = "/Users/cgrant/OneDrive/GitHub/github.txt"
     try:
         with open(token_file, 'r') as f:
             token = f.readlines()[0]
