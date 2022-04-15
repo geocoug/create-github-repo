@@ -14,9 +14,7 @@ base_url = "https://api.github.com"
 def GetAuth() -> tuple:
     """Read a local file containing username and authentication token"""
     # Name of file storing GitHub token
-    auth_file = os.path.join(
-        os.path.dirname(os.path.dirname(os.getcwd())), "github.txt"
-    )
+    auth_file = os.path.join(os.getcwd(), "github.txt")
     try:
         with open(auth_file, "r") as f:
             auth = f.readlines()
