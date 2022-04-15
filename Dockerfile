@@ -2,7 +2,7 @@ FROM python:3.10
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt github.txt ./
+COPY requirements.txt ./
 
 ENV PYTHON_VENV=/opt/pyenv
 

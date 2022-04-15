@@ -15,7 +15,7 @@ Simple CLI to initialize repos on GitHub using Python.
 
 `docker build -t create-repo .`
 
-`docker run --rm -it create-repo`
+`docker run --rm -it -v $(PWD)/github.txt:/usr/src/app/github.txt create-repo`
 
 ## Example
 
