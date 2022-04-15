@@ -90,13 +90,13 @@ def main() -> None:
         else:
             break
     if private.upper() == "Y":
-        private = True
+        is_private = True
     else:
-        private = False
+        is_private = False
     repo_desc = input("Description (optional): ").strip()
     CreateRepo(
         base_url + "/user/repos",
-        {"name": repo_name, "private": private, "description": repo_desc},
+        {"name": repo_name, "private": is_private, "description": repo_desc},
         {"Authorization": "token {}".format(token)},
     )
     RevertChanges(username, token, repo_name)
